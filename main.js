@@ -2,7 +2,7 @@ var glasses = 0;
 
 function workClick(number){
     glasses = glasses + number;
-    document.getElementById("glasses").innerHTML = cookies;
+    document.getElementById("glasses").innerHTML = glasses;
 };
 
 var cursors = 0;
