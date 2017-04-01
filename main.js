@@ -5,7 +5,7 @@ function workClick(number){
     document.getElementById("glasses").innerHTML = glasses;
 };
 
-var cursors = 0;
+var friends = 0;
 
 function buyFriend(){
     var friendCost = Math.floor(10 * Math.pow(1.1,friends));     //works out the cost of this friend
