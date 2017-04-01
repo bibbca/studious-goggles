@@ -21,6 +21,6 @@ function buyFriend(){
 
 window.setInterval(function(){
 	
-	workClick(friend);
+	workClick(friends);
 	
 }, 1000);
