@@ -22,7 +22,7 @@ function buyFriend(){
 var students = 0;
 
 function buyStudent(){
-    var friendCost = Math.floor(10 * Math.pow(1.1,students));   
+    var studentCost = Math.floor(10 * Math.pow(1.1,students));   
     if(glasses >= studentCost){                                  
         students = students + 1;                                
     	glasses = glasses - studentCost;                        
