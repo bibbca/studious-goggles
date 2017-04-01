@@ -30,12 +30,11 @@ function buyStudent(){
         document.getElementById('glasses').innerHTML = glasses;  
     };
     var nextCost = Math.floor(10 * Math.pow(1.1,students));       //works out the cost of the next friend
-    document.getElementById('friendCost').innerHTML = nextCost;  //updates the cursor cost for the user
+    document.getElementById('studentCost').innerHTML = nextCost;  //updates the cursor cost for the user
 };
 
 window.setInterval(function(){
 	
-	workClick(friends);
-	workClick(students*2);
+	workClick(friends+students*2);
 	
 }, 1000);
