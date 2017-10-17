@@ -23,10 +23,10 @@ function sellGoggles(){
 var friends = 0;
 var friendMultiplier = 1;
 
-function buyFriend(){
+function buyFriend(number){
     var friendCost = Math.floor(10 * Math.pow(1.1,friends));     //works out the cost of this friend
     if(money >= friendCost){                                   //checks that the player can afford the friend
-        friends = friends + 1;                                   //increases number of friends
+        friends = friends + number;                                   //increases number of friends
     	money = money - friendCost;                          //removes the glasses spent
         document.getElementById('friends').innerHTML = friends; 
         document.getElementById('money').innerHTML = money.toFixed(2);  //updates the number of glasses for the user
@@ -39,10 +39,10 @@ function buyFriend(){
 var students = 0;
 var studentMultiplier = 1;
 
-function buyStudent(){
+function buyStudent(number){
     var studentCost = Math.floor(10 * Math.pow(1.5,students))+10;   
     if(money >= studentCost){                                  
-        students = students + 1;                                
+        students = students + number;                                
     	money = money - studentCost;                        
         document.getElementById('students').innerHTML = students; 
         document.getElementById('money').innerHTML = money.toFixed(2);  
@@ -56,10 +56,10 @@ function buyStudent(){
 var factoryWorker = 0;
 var factoryMultiplier = 1;
 
-function buyFactoryWorker(){
+function buyFactoryWorker(number){
     var factoryWorkerCost = Math.floor(10 * Math.pow(1.8,factoryWorker))+100;   
     if(money >= factoryWorkerCost){                                  
-        factoryWorker = factoryWorker + 1;                                
+        factoryWorker = factoryWorker + number;                                
     	money = money - factoryWorkerCost;                        
         document.getElementById('money').innerHTML = money.toFixed(2); 
         document.getElementById('factoryWorker').innerHTML = factoryWorker; 
@@ -73,10 +73,10 @@ function buyFactoryWorker(){
 var enemy = 0;
 var enemyMultiplier = 1;
 
-function buyEnemy(){
+function buyEnemy(number){
     var enemyCost = 10 * Math.pow(2,enemy);   
     if(friends >= enemyCost){                                  
-        enemy = enemy + 1;                                
+        enemy = enemy + number;                                
     	friends = friends - enemyCost;
 		sellingPrice = sellingPrice - .1;
         document.getElementById('enemy').innerHTML = enemy; 
@@ -101,6 +101,21 @@ function buyStudentWeight(){
     var nextStudentWC = Math.floor(1 * Math.pow(1.001,studentWeight)+25);       //works out the cost of the next friend
     document.getElementById('studentWeightCost').innerHTML = nextStudentWC;  //updates the cursor cost for the user
 }; */
+
+var contract = 0;
+function getContract(number){
+	var contractCost = 100 * Math.pow(2, contract);
+	if(glasses >= contractCost){
+		contract = contract + number;
+		glasses = glasses - contractCost;
+		sellingPrice = sellingPrice + .2;
+		document.getElementById('glasses').innerHTML = glasses;
+		document.getElementById('sellingPrice').innerHTML = sellingPrice.toFixed(2);
+		document.getElementById('contract').innerHTML = contract;
+	};
+	var contractCost = 100 * Math.pow(2, contract);
+	document.getElementById('contractCost').innerHTML = contractCost;
+};
 
 var clickAmount = 0;
 
