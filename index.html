@@ -1,26 +1,54 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="interface.css" />
+		<title>Goggles v1.0.1</title>
 	</head>
 	<body>
 		<button onclick="workClick(1)">Make A Pair</button>
+		<button onclick="sellGoggles()">Sell  All Glasses</button>
 		<br />
-		Glasses: <span id="glasses">0</span>
+		Glasses: <span id="glasses">0</span> 
+		<br />
+		Wallet: $<span id="money">0.00</span>
+		<br />
+		Current Selling Price: $<span id="sellingPrice">0.50</span>
+		<br />
 		<br />
 		
 		<button onclick="buyFriend()">Hire a Friend</button>
 		<br />
-		Friends: <span id="friends">0</span>
+		Friends: <span id="friends">0</span> (.5 per Tick)
 		<br />
-		Friend Cost: <span id="friendCost">10</span>
+		Friend Cost: $<span id="friendCost">10</span>
 		<br />
 		
 		<button onclick="buyStudent()">Hire a College Student</button>
 		<br />
-		College Students: <span id="students">0</span>
+		College Students: <span id="students">0</span> (1 per Tick)
 		<br />
-		Student Cost: <span id="studentCost">20</span>
+		Student Cost: $<span id="studentCost">20</span>
+		<br />
 		
+		<button onclick="buyFactoryWorker()">Hire a Factory Worker</button>
+		<br />
+		Factory Workers: <span id="factoryWorker">0</span> (2 per Tick)
+		<br />
+		Factory Worker Cost: $<span id="factoryWorkerCost">110</span>
+		<br />
+		<button onclick="buyEnemy()">Turn a friend for profit</button>
+		<br />
+		Enemies: <span id="enemy">0</span> (5 per Tick)
+		<br />
+		Enemy Cost: <span id="enemyCost">10</span> friends
+		<br />
+		<br />
+		Goggles per Tick: <span id="currentClickAmount">0</span>
+		
+		<!-- <button onclick="buyStudentWeight()">Make Students Work Harder</button>
+		<br />
+		Hours Working: <span id="studentWeight">1</span>
+		<br />
+		Glasses cost: <span id="studentWeightCost">25</span> -->
 		
 		<script type="text/javascript" src="main.js"></script>
 	</body>
