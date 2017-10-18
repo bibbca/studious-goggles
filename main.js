@@ -24,7 +24,7 @@ var friends = 0;
 var friendMultiplier = 1;
 
 function buyFriend(number){
-    var friendCost = Math.floor(10 * Math.pow(1.1,friends));     //works out the cost of this friend
+    var friendCost = Math.floor(10 * Math.pow(1.1,friends*number));     //works out the cost of this friend for number ==10
     if(money >= friendCost){                                   //checks that the player can afford the friend
         friends = friends + number;                                   //increases number of friends
     	money = money - friendCost;                          //removes the glasses spent
@@ -32,7 +32,7 @@ function buyFriend(number){
         document.getElementById('money').innerHTML = money.toFixed(2);  //updates the number of glasses for the user
     };
     var nextFriend = Math.floor(10 * Math.pow(1.1,friends));       //works out the cost of the next friend
-    document.getElementById('friendCost').innerHTML = nextFriend;  //updates the cursor cost for the user
+    document.getElementById('friendCost1').innerHTML = nextFriend;  //updates the cursor cost for the user
 	calculateTickAmount();
 };
 
@@ -40,14 +40,14 @@ var students = 0;
 var studentMultiplier = 1;
 
 function buyStudent(number){
-    var studentCost = Math.floor(10 * Math.pow(1.5,students))+10;   
+    var studentCost = Math.floor(10 * Math.pow(1.2,students*number))+10;   
     if(money >= studentCost){                                  
         students = students + number;                                
     	money = money - studentCost;                        
         document.getElementById('students').innerHTML = students; 
         document.getElementById('money').innerHTML = money.toFixed(2);  
     };
-    var nextStudent = Math.floor(10 * Math.pow(1.5,students))+10;       //works out the cost of the next friend
+    var nextStudent = Math.floor(10 * Math.pow(1.2,students*number))+10;       //works out the cost of the next friend
     document.getElementById('studentCost').innerHTML = nextStudent;  //updates the cursor cost for the user
 	calculateTickAmount();
 	//console.log(studentCost);
@@ -57,7 +57,7 @@ var factoryWorker = 0;
 var factoryMultiplier = 1;
 
 function buyFactoryWorker(number){
-    var factoryWorkerCost = Math.floor(10 * Math.pow(1.8,factoryWorker))+100;   
+    var factoryWorkerCost = Math.floor(10 * Math.pow(1.3,factoryWorker*number))+100;   
     if(money >= factoryWorkerCost){                                  
         factoryWorker = factoryWorker + number;                                
     	money = money - factoryWorkerCost;                        
@@ -66,6 +66,8 @@ function buyFactoryWorker(number){
     };
     var nextFactoryWorker = Math.floor(10 * Math.pow(1.8,factoryWorker))+100;       //works out the cost of the next friend
     document.getElementById('factoryWorkerCost').innerHTML = nextFactoryWorker;  //updates the cursor cost for the user
+	var nextFactoryWorker10 = Math.floor(10 * Math.pow(1.8,factoryWorker*10))+100;       //works out the cost of the next friend
+    document.getElementById('factoryWorkerCost10').innerHTML = nextFactoryWorker10;  //updates the cursor cost for the user
 	calculateTickAmount();
 	//console.log(factoryWorkerCost);
 };
@@ -88,6 +90,23 @@ function buyEnemy(number){
 	calculateTickAmount();
 	//console.log(factoryWorkerCost);
 };
+
+var classNum = 0;
+function buyClass(number){
+    var classCost = 10 * Math.pow(2,classNum)+1000;   
+    if(money >= classCost){                                  
+        classNum = classNum + number;                                
+    	money = money - classCost;
+        document.getElementById('classNum').innerHTML = classNum; 
+        document.getElementById('money').innerHTML = money.toFixed(2);  
+    };
+    var nextClass = 10 * Math.pow(2,classNum) + 1000;
+    document.getElementById('classCost').innerHTML = nextClass.toFixed(2);
+	document.getElementById('studentCost').innerHTML = nextStudent.toFixed(2);
+	calculateTickAmount();
+	//console.log(factoryWorkerCost);
+};
+
 /* var studentWeight = 1;
 
 function buyStudentWeight(){
@@ -126,13 +145,21 @@ function calculateTickAmount(){
 	var studentClickAmount = studentMultiplier * students * 1;
 	var factoryClickAmount = factoryMultiplier * factoryWorker * 2;
 	var enemyClickAmount = enemyMultiplier * enemy * 5;
-	var clickAmount = friendClickAmount + studentClickAmount + factoryClickAmount + enemyClickAmount;
+	var clickAmount = Math.floor(friendClickAmount + studentClickAmount + factoryClickAmount + enemyClickAmount);
 	document.getElementById('currentClickAmount').innerHTML = clickAmount;
 	return(clickAmount);
-}
-
+};
+var tickTally = 0;
 window.setInterval(function(){
 	var clickAmount = calculateTickAmount();
 	workClick(clickAmount);
+	if(classNum >= 1){
+	tickTally = tickTally + 1;
+	};
+	if(tickTally ==10){
+		tickTally = 0;
+		student = student+classNum*number*.1;
+		document.getElementById('students').innerHTML = students;
+	};
 	//console.log(clickAmount);  //Some great logging action.
 }, 1000);
