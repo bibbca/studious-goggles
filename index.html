@@ -1,13 +1,60 @@
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="interface.css" />
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		
 		<title>Goggles v1.0.1</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/navbar-top-fixed.css" rel="stylesheet">
 	</head>
 	<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://playernumber21.github.io">Playernumber21.Github.io</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+		<ul class="nav navbar-nav">
+            <li class="active"><a href="https://playernumber21.github.io">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+				<li class="dropdown-header">Repositories</li>
+                <li><a href="https://github.com/playernumber21/studious-goggles/">Studious Goggles</a></li>
+                <li><a href="https://github.com/playernumber21/DataAnalysis">Data Analysis</a></li>
+                <li><a href="https://github.com/playernumber21/Numerical_Analysis">Numerical Analysis</a></li>
+				<li><a href="https://github.com/playernumber21/project">Hackathon Project</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Live Examples</li>
+                <li><a href="https://playernumber21.github.io/studious-goggles/">Studious Goggles</a></li>
+                <!--
+				<li><a href="#">One more separated link</a></li>
+				-->
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+    
+	<div class="container">
+		<div class="jumbotron">
 		<button onclick="workClick(1)">Make A Pair</button>
 		<button onclick="workClick(1000)">Caleb Button</button>
 		<button onclick="sellGoggles()">Sell  All Glasses</button>
-		<br />
+		</div>
+	</div>
+	<div class="container">
 		Glasses: <span id="glasses">0</span> 
 		<br />
 		Wallet: $<span id="money">0.00</span>
@@ -61,12 +108,19 @@
 		<br />
 		Goggles per Tick: <span id="currentClickAmount">0</span>
 		
+	</div>
 		<!-- <button onclick="buyStudentWeight()">Make Students Work Harder</button>
 		<br />
 		Hours Working: <span id="studentWeight">1</span>
 		<br />
 		Glasses cost: <span id="studentWeightCost">25</span> -->
 		
-		<script type="text/javascript" src="main.js"></script>
+	<!-- JavaScript Files -->
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Game Script -->
+		<script type="text/javascript" src="js/main.js"></script>
 	</body>
 </html>
